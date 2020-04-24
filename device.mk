@@ -26,6 +26,10 @@ PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/sdm845 \
     vendor/google/interfaces
 
+# ADB key
+PRODUCT_COPY_FILES += \
+    device/google/bonito/adbkey.pub:root/adb_keys
+
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true
 
@@ -652,7 +656,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.sys.ssr.restart_level=modem,slpi,adsp
 
 # Setup Dalvik VM configurations
-$(call inherit-product, vendor/extras/configs/phone-xhdpi-4096-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
 PRODUCT_COPY_FILES += \
     device/google/bonito/fstab.hardware:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(PRODUCT_PLATFORM) \
